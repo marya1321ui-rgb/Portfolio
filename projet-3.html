@@ -6,59 +6,279 @@
   <title>Projets — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .projet-hero { padding-top: var(--nav-height); min-height: 70vh; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
-    .projet-hero__content { display: flex; flex-direction: column; justify-content: center; padding: var(--space-xl) var(--space-md); max-width: 600px; }
-    .projet-hero__back { display: inline-flex; align-items: center; gap: 8px; font-size: var(--size-label); letter-spacing: .12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-lg); transition: gap var(--transition); }
+    /* =========================================================
+       STYLES SPÉCIFIQUES — PAGE PROJET
+    ========================================================= */
+
+    .projet-hero {
+      padding-top: var(--nav-height);
+      min-height: 70vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    .projet-hero__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-xl) var(--space-md);
+      max-width: 600px;
+    }
+
+    .projet-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: var(--size-label);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-lg);
+      transition: gap var(--transition);
+    }
     .projet-hero__back:hover { gap: 14px; }
-    .projet-hero__num { font-family: var(--font-display); font-size: 6rem; font-weight: 700; color: var(--color-border); line-height: 1; margin-bottom: var(--space-xs); }
-    .projet-hero__label { font-size: var(--size-label); letter-spacing: .15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-sm); }
-    .projet-hero__title { font-family: var(--font-display); font-size: clamp(2.5rem,5vw,4.5rem); font-weight: 400; font-style: italic; line-height: 1.1; margin-bottom: var(--space-md); }
-    .projet-hero__desc { font-size: 1rem; color: var(--color-text-light); line-height: 1.8; max-width: 460px; margin-bottom: var(--space-md); }
+
+    .projet-hero__num {
+      font-family: var(--font-display);
+      font-size: 6rem;
+      font-weight: 700;
+      color: var(--color-border);
+      line-height: 1;
+      margin-bottom: var(--space-xs);
+    }
+
+    .projet-hero__label {
+      font-size: var(--size-label);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    .projet-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      margin-bottom: var(--space-md);
+    }
+
+    .projet-hero__desc {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+      max-width: 460px;
+      margin-bottom: var(--space-md);
+    }
+
     .projet-hero__tags { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
-    .projet-hero__tag { font-size: var(--size-label); letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--color-border); padding: 4px 12px; color: var(--color-text-light); }
+    .projet-hero__tag {
+      font-size: var(--size-label);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--color-border);
+      padding: 4px 12px;
+      color: var(--color-text-light);
+    }
+
     .projet-hero__image { position: relative; min-height: 500px; }
     .projet-hero__image img { filter: grayscale(20%); }
-    .projet-meta { background: var(--color-bg-dark); padding: var(--space-md); }
-    .projet-meta__inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-md); }
-    .meta-item__label { font-size: var(--size-label); letter-spacing: .12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: var(--space-xs); }
-    .meta-item__value { font-family: var(--font-display); font-size: 1.1rem; color: var(--color-text-white); font-style: italic; }
-    .projet-body { max-width: var(--max-width); margin: 0 auto; padding: var(--space-xl) var(--space-md); }
-    .projet-intro { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-xl); margin-bottom: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-border); }
-    .projet-intro__sidebar h3 { font-family: var(--font-display); font-style: italic; font-size: 1.5rem; font-weight: 400; margin-bottom: var(--space-sm); }
-    .projet-intro__sidebar p { font-size: var(--size-label); letter-spacing: .1em; text-transform: uppercase; color: var(--color-text-light); }
-    .projet-intro__text p { font-size: 1rem; color: var(--color-text-light); line-height: 1.9; margin-bottom: var(--space-sm); }
+
+    /* Méta */
+    .projet-meta {
+      background: var(--color-bg-dark);
+      padding: var(--space-md);
+    }
+    .projet-meta__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+    .meta-item__label {
+      font-size: var(--size-label);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xs);
+    }
+    .meta-item__value {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--color-text-white);
+      font-style: italic;
+    }
+
+    /* Corps */
+    .projet-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    /* Intro */
+    .projet-intro {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .projet-intro__sidebar h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: var(--space-sm);
+    }
+    .projet-intro__sidebar p {
+      font-size: var(--size-label);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+    .projet-intro__text p {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      line-height: 1.9;
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Galerie — 3/3 desktop, 2/2 tablette, 1 mobile */
     .projet-gallery { margin-bottom: var(--space-xl); }
-    .projet-gallery__title { font-family: var(--font-display); font-style: italic; font-size: var(--size-h2); font-weight: 400; margin-bottom: var(--space-md); }
-    .gallery-grid { display: grid; gap: var(--space-md); grid-template-columns: repeat(3,1fr); }
+    .projet-gallery__title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--size-h2);
+      font-weight: 400;
+      margin-bottom: var(--space-md);
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: var(--space-md);
+      grid-template-columns: repeat(3, 1fr);
+    }
     .gallery-grid.grid-1col { grid-template-columns: 1fr; }
-    .gallery-grid.grid-2col { grid-template-columns: repeat(2,1fr); }
-    .gallery-item { position: relative; overflow: hidden; background: var(--color-card-bg); }
-    .gallery-item img { aspect-ratio: 16/10; object-fit: cover; display: block; width: 100%; height: auto; transition: transform .5s ease; filter: grayscale(10%); }
+    .gallery-grid.grid-2col { grid-template-columns: repeat(2, 1fr); }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--color-card-bg);
+    }
+
+    .gallery-item img {
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease;
+      filter: grayscale(10%);
+    }
     .gallery-item:hover img { transform: scale(1.03); }
-    .gallery-item__overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(26,34,51,.84); color: var(--color-text-white); padding: var(--space-sm) var(--space-md); font-size: .85rem; line-height: 1.6; font-weight: 300; transform: translateY(100%); transition: transform .2s ease; }
+
+    /* Overlay description — hover desktop, tap mobile */
+    .gallery-item__overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(26, 34, 51, 0.84);
+      color: var(--color-text-white);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      font-weight: 300;
+      transform: translateY(100%);
+      transition: transform 0.2s ease;
+    }
     .gallery-item:hover .gallery-item__overlay { transform: translateY(0); }
     .gallery-item.overlay-active .gallery-item__overlay { transform: translateY(0); }
-    .gallery-placeholder { aspect-ratio: 16/10; background: var(--color-card-bg); border: 2px dashed var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--color-text-light); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: border-color var(--transition),background var(--transition); }
+
+    /* Placeholder upload */
+    .gallery-placeholder {
+      aspect-ratio: 16/10;
+      background: var(--color-card-bg);
+      border: 2px dashed var(--color-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-light);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+    }
     .gallery-placeholder:hover { border-color: var(--color-accent); background: #ede7d8; }
-    .gallery-placeholder span { font-size: 2rem; margin-bottom: var(--space-xs); opacity: .4; }
-    .projet-analysis { margin-bottom: var(--space-xl); padding-bottom: var(--space-xl); border-bottom: 1px solid var(--color-border); }
-    .projet-analysis h3 { font-family: var(--font-display); font-style: italic; font-size: var(--size-h2); font-weight: 400; margin-bottom: var(--space-md); }
-    .projet-analysis p { font-size: 1rem; color: var(--color-text-light); line-height: 1.9; margin-bottom: var(--space-sm); max-width: 720px; }
-    .projet-nav { display: flex; justify-content: space-between; align-items: center; padding-top: var(--space-lg); }
-    .projet-nav__btn { display: flex; align-items: center; gap: var(--space-sm); font-size: var(--size-label); letter-spacing: .12em; text-transform: uppercase; transition: gap var(--transition); }
+    .gallery-placeholder span { font-size: 2rem; margin-bottom: var(--space-xs); opacity: 0.4; }
+
+    /* Analyse */
+    .projet-analysis {
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .projet-analysis h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--size-h2);
+      font-weight: 400;
+      margin-bottom: var(--space-md);
+    }
+    .projet-analysis p {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      line-height: 1.9;
+      margin-bottom: var(--space-sm);
+      max-width: 720px;
+    }
+
+    /* Navigation projet suivant/précédent */
+    .projet-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-lg);
+    }
+    .projet-nav__btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: var(--size-label);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: gap var(--transition);
+    }
     .projet-nav__btn:hover { gap: var(--space-md); }
-    .projet-nav__btn-label { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; display: block; color: var(--color-text); font-weight: 400; }
-    @media (max-width:900px) {
+    .projet-nav__btn-label {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      display: block;
+      color: var(--color-text);
+      font-weight: 400;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
       .projet-hero { grid-template-columns: 1fr; }
       .projet-hero__content { padding: var(--space-lg) var(--space-md); max-width: 100%; }
       .projet-hero__image { min-height: 300px; }
-      .projet-meta__inner { grid-template-columns: repeat(2,1fr); }
+      .projet-meta__inner { grid-template-columns: repeat(2, 1fr); }
       .projet-intro { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      /* 2 colonnes tablette */
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-grid.grid-1col { grid-template-columns: 1fr; }
     }
-    @media (max-width:600px) {
+    @media (max-width: 600px) {
       .projet-meta__inner { grid-template-columns: 1fr 1fr; }
+      /* 1 colonne mobile */
       .gallery-grid { grid-template-columns: 1fr !important; }
       .projet-nav { flex-direction: column; gap: var(--space-md); text-align: center; }
     }
@@ -91,11 +311,11 @@
       color: rgba(255,255,255,.35); pointer-events: none;
     }
 
-    /* image wrapper — handles overflow for pan */
+    /* image wrapper */
     .lb-stage {
       position: relative;
       display: flex; align-items: center; justify-content: center;
-      width: 90vw; height: 90vh;
+      width: 100vw; height: 100vh;
       overflow: hidden;
     }
 
@@ -109,6 +329,7 @@
       user-select: none; -webkit-user-drag: none;
       transition: transform .22s ease, opacity .25s ease;
       cursor: zoom-in;
+      background-color: white;
     }
     .lb-img.zoomed { cursor: grab; }
     .lb-img.dragging { cursor: grabbing; transition: none; }
@@ -158,51 +379,47 @@
     }
     .lb-zoom-badge.hidden { opacity: 0; }
 
-    /* gallery items get a zoom cursor (sauf la 2e image cachée) */
+    /* gallery items get a zoom cursor */
     .gallery-item img:not(.gallery-item__img2) { cursor: zoom-in !important; }
     .gallery-item__img2 { display: none !important; }
 
-    /* ── Sous-navigation lightbox (points 1 / 2) ── */
+    /* ══════════════════════════════════════════════
+       ★ MODIFICATION — Flèches haut/bas (remplace les points)
+       ══════════════════════════════════════════════ */
     .lb-subnav {
       position: absolute;
       bottom: 72px; left: 50%;
       transform: translateX(-50%);
-      display: flex; gap: 14px; align-items: center;
+      display: flex; flex-direction: row; gap: 14px; align-items: center;
       z-index: 3;
     }
-    /* Zone de clic large (min 44×44 px pour mobile) */
-    .lb-dot {
+    .lb-sub-arrow {
       width: 44px; height: 44px;
       border-radius: 50%;
-      background: transparent;
-      border: none;
-      cursor: pointer; padding: 0;
+      background: rgba(180,180,180,.45);
+      border: 1px solid rgba(100,100,100,.35);
+      color: #fff; font-size: 1.2rem; line-height: 1;
+      cursor: pointer;
       display: flex; align-items: center; justify-content: center;
+      transition: opacity .2s, background .2s, border-color .2s;
+      opacity: .55;
     }
-    /* Pastille visible centrée dans la zone de clic */
-    .lb-dot::after {
-      content: '';
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.35);
-      border: 2px solid rgba(255,255,255,.55);
-      transition: background .2s, transform .2s, border-color .2s;
-      display: block;
+    .lb-sub-arrow:hover { opacity: 1; background: rgba(160,160,160,.65); border-color: rgba(80,80,80,.5); }
+    .lb-sub-arrow[disabled] { opacity: .15; pointer-events: none; }
+    .lb-sub-counter {
+      font-size: .65rem; letter-spacing: .12em;
+      color: rgba(255,255,255,.4); pointer-events: none;
+      text-align: center;
     }
-    .lb-dot.active::after {
-      background: #fff;
-      border-color: #fff;
-      transform: scale(1.25);
-    }
-    .lb-dot:hover::after { background: rgba(255,255,255,.75); }
+    /* ══════════════════════════════════════════════ */
 
-    /* Indication swipe visible quand 2e image dispo */
+    /* Indication swipe */
     .lb-swipe-hint {
       position: absolute;
       top: 16px; left: 50%;
       transform: translateX(-50%);
       font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(255,255,255,.28); pointer-events: none;
+      color: rgba(255,255,255,.5); pointer-events: none;
       white-space: nowrap; transition: opacity .5s;
     }
     .lb-swipe-hint.hidden { opacity: 0; }
@@ -251,9 +468,9 @@
   <div class="projet-meta">
     <div class="projet-meta__inner">
       <div class="meta-item"><p class="meta-item__label">Client</p><p class="meta-item__value">Employeurs</p></div>
-      <div class="meta-item"><p class="meta-item__label">Année</p><p class="meta-item__value">d'hier à aujourd'hui</p></div>
+      <div class="meta-item"><p class="meta-item__label">Année</p><p class="meta-item__value">D'hier à aujourd'hui</p></div>
       <div class="meta-item"><p class="meta-item__label">Rôle</p><p class="meta-item__value">Direction Artistique</p></div>
-      <div class="meta-item"><p class="meta-item__label">Durée</p><p class="meta-item__value">au fil des ans</p></div>
+      <div class="meta-item"><p class="meta-item__label">Durée</p><p class="meta-item__value">Au fil des ans</p></div>
     </div>
   </div>
 
@@ -261,59 +478,44 @@
     <div class="projet-intro fade-in">
       <div class="projet-intro__sidebar"><h3>Le Contexte</h3><p>Présentation du projet</p></div>
       <div class="projet-intro__text">
-        <p>En cours de realisation</p>
-        <p></p>
+        <p>Au cours de mes années d'études ou professionnelles, j'ai participé à plusieurs projets, avec des moyens plus ou moins professionnels, Canva, Keynote, PPT ...</p>
+        <p>Vous trouverez dans les réalisations une partie des rendus que j'ai pu récupérer ou pour lesquels j'ai eu l'autorisation de partager.</p>
       </div>
     </div>
-<!--
+
     <div class="projet-gallery fade-in">
       <h2 class="projet-gallery__title">Les Réalisations</h2>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Composition typographique" />
-          <div class="gallery-item__overlay">Composition typographique — série I</div>
+          <img src="assets/03_projets/indd-reproduction-animeland.webp" />
+          <img class="gallery-item__img2" src="assets/03_projets/Indd-Reproduction-Animeland2.webp" alt="magazine — vue 2">
+          <div class="gallery-item__overlay">Indesign - reproduction d'une couverture de magasine, dans le cadre universitaire.</div>
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&q=80" alt="Système de grille" />
-          <div class="gallery-item__overlay">Système de grille — architecture invisible</div>
+          <img src="assets/03_projets/muppies_print.webp" />
+          <img class="gallery-item__img2" src="" alt=" — vue 2">
+          <div class="gallery-item__overlay">Keynote - création d'un poster pour la fondation Airbus.</div>
         </div>
         <div class="gallery-item">
+          <img src="assets/03_projets/muppies_diversity.webp" />
+          <img class="gallery-item__img2" src="" alt=" — vue 2">
+          <div class="gallery-item__overlay">Keynote - création d'un poster pour la fondation Airbus.</div>
+        </div>
+<!--    <div class="gallery-item">
           <div class="gallery-placeholder" onclick="this.parentElement.querySelector('input').click()">
             <span>＋</span>Déposer une réalisation
             <input type="file" accept="image/*" style="display:none" onchange="previewImage(event,this)"/>
           </div>
           <div class="gallery-item__overlay">— à compléter —</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder" onclick="this.parentElement.querySelector('input').click()">
-            <span>＋</span>Déposer une réalisation
-            <input type="file" accept="image/*" style="display:none" onchange="previewImage(event,this)"/>
-          </div>
-          <div class="gallery-item__overlay">— à compléter —</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder" onclick="this.parentElement.querySelector('input').click()">
-            <span>＋</span>Déposer une réalisation
-            <input type="file" accept="image/*" style="display:none" onchange="previewImage(event,this)"/>
-          </div>
-          <div class="gallery-item__overlay">— à compléter —</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder" onclick="this.parentElement.querySelector('input').click()">
-            <span>＋</span>Déposer une réalisation
-            <input type="file" accept="image/*" style="display:none" onchange="previewImage(event,this)"/>
-          </div>
-          <div class="gallery-item__overlay">— à compléter —</div>
-        </div>
+        </div>    -->
       </div>
     </div>
 
     <div class="projet-analysis fade-in">
       <h3>La Démarche</h3>
-      <p>xxx</p>
-      <p>xxx</p>
+      <p>Les "projets" permettent de montrer ce qui peut etre fait dans le cadre d'un apprentissage ou pour un employeur quelque soit le logiciel proposé.</p>
+      <p>On ne peut pas toujours choisir les ustensiles fournis par la cuisine, on apprend à faire avec ce qui est proposé pour le meilleur rendu possible. </p>
     </div>
--->
     <nav class="projet-nav fade-in">
       <a href="projet-2.html" class="projet-nav__btn">← <span><small style="font-size:var(--size-label);letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-light)">Précédent</small><span class="projet-nav__btn-label">Dossier de formation Part2</span></span></a>
       <a href="index.html#menu" style="font-size:var(--size-label);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-light)">☰ Tous les projets</a>
@@ -331,7 +533,7 @@
     </div>
   </footer>
 
-   <!-- ── LIGHTBOX ────────────────────────────────────────── -->
+     <!-- ── LIGHTBOX ────────────────────────────────────────── -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu image">
     <button class="lb-close" id="lbClose" aria-label="Fermer">✕</button>
     <div class="lb-counter" id="lbCounter"></div>
@@ -340,10 +542,13 @@
       <img class="lb-img" id="lbImg" src="" alt="" draggable="false" />
       <button class="lb-arrow lb-next" id="lbNext" aria-label="Image suivante">›</button>
       <div class="lb-caption" id="lbCaption"></div>
-      <div class="lb-subnav" id="lbSubnav" style="display:none">
-        <button class="lb-dot active" id="lbDot1" aria-label="Vue 1"></button>
-        <button class="lb-dot"        id="lbDot2" aria-label="Vue 2"></button>
+      <!-- ★ MODIFICATION — Flèches haut/bas (remplace les points) -->
+      <div id="lbSubnav" class="lb-subnav" style="display:none">
+        <button class="lb-sub-arrow" id="lbSubUp"   aria-label="Vue précédente">▲</button>
+        <span   class="lb-sub-counter" id="lbSubCounter">1 / 1</span>
+        <button class="lb-sub-arrow" id="lbSubDown" aria-label="Vue suivante">▼</button>
       </div>
+      <!-- ★ FIN MODIFICATION -->
       <div class="lb-swipe-hint hidden" id="lbSwipeHint">↕ Glisser pour changer de vue</div>
       <div class="lb-hint" id="lbHint">Clic ou ✕ pour fermer &nbsp;|&nbsp; ← → pour naviguer</div>
       <div class="lb-zoom-badge hidden" id="lbZoomBadge">×1</div>
@@ -367,7 +572,11 @@
     backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     function previewImage(event, input) { const file = event.target.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (e) => { const container = input.closest('.gallery-item'); const placeholder = container.querySelector('.gallery-placeholder'); const img = document.createElement('img'); img.src = e.target.result; img.alt = 'Réalisation'; placeholder.replaceWith(img); }; reader.readAsDataURL(file); }
 
-    // ── LIGHTBOX ──────────────────────────────────────────────────
+        // ══════════════════════════════════════════════════════════════
+    // ★ MODIFICATION — Lightbox dynamique avec flèches haut/bas
+    //   → Supporte N images par gallery-item (gallery-item__img2)
+    //   → Les flèches ▲ ▼ remplacent les points
+    // ══════════════════════════════════════════════════════════════
     (function () {
       const lb           = document.getElementById('lightbox');
       const lbImg        = document.getElementById('lbImg');
@@ -378,8 +587,9 @@
       const lbNext       = document.getElementById('lbNext');
       const lbStage      = document.getElementById('lbStage');
       const lbSubnav     = document.getElementById('lbSubnav');
-      const lbDot1       = document.getElementById('lbDot1');
-      const lbDot2       = document.getElementById('lbDot2');
+      const lbSubUp      = document.getElementById('lbSubUp');
+      const lbSubDown    = document.getElementById('lbSubDown');
+      const lbSubCounter = document.getElementById('lbSubCounter');
       const lbSwipeHint  = document.getElementById('lbSwipeHint');
 
       let items = [], current = 0, subIndex = 0;
@@ -389,17 +599,11 @@
           .filter(item => item.querySelector('img:not(.gallery-item__img2)'));
       }
 
-      function getImg(item, idx) {
-        if (idx === 1) {
-          const img2 = item.querySelector('.gallery-item__img2');
-          if (img2 && img2.getAttribute('src')) return img2;
-        }
-        return item.querySelector('img:not(.gallery-item__img2)');
-      }
-
-      function hasSecond(item) {
-        const img2 = item.querySelector('.gallery-item__img2');
-        return !!(img2 && img2.getAttribute('src') !== '');
+      function getAllImgs(item) {
+        const main = item.querySelector('img:not(.gallery-item__img2)');
+        const subs = Array.from(item.querySelectorAll('.gallery-item__img2'))
+          .filter(img => img.getAttribute('src'));
+        return [main, ...subs].filter(Boolean);
       }
 
       function open(index, sub) {
@@ -420,9 +624,11 @@
 
       function update() {
         const item = items[current];
-        const img  = getImg(item, subIndex);
-        lbImg.src  = img.src;
-        lbImg.alt  = img.alt || '';
+        const imgs = getAllImgs(item);
+        subIndex = Math.max(0, Math.min(subIndex, imgs.length - 1));
+
+        lbImg.src = imgs[subIndex].src;
+        lbImg.alt = imgs[subIndex].alt || '';
 
         const ov = item.querySelector('.gallery-item__overlay');
         lbCaption.textContent = ov ? ov.textContent.trim() : '';
@@ -430,28 +636,27 @@
         lbPrev.disabled = current === 0;
         lbNext.disabled = current === items.length - 1;
 
-        // Dots de sous-navigation
-        const second = hasSecond(item);
-        lbSubnav.style.display = second ? 'flex' : 'none';
-        lbSwipeHint.classList.toggle('hidden', !second);
-        if (second) {
-          lbDot1.classList.toggle('active', subIndex === 0);
-          lbDot2.classList.toggle('active', subIndex === 1);
+        if (imgs.length > 1) {
+          lbSubnav.style.display = 'flex';
+          lbSubCounter.textContent = `${subIndex + 1} / ${imgs.length}`;
+          lbSubUp.disabled   = subIndex === 0;
+          lbSubDown.disabled = subIndex === imgs.length - 1;
+          lbSwipeHint.classList.remove('hidden');
+        } else {
+          lbSubnav.style.display = 'none';
+          lbSwipeHint.classList.add('hidden');
         }
       }
 
-      // Attache le clic sur chaque image principale
       document.querySelectorAll('.gallery-item').forEach((item, i) => {
         const img = item.querySelector('img:not(.gallery-item__img2)');
         if (img) img.addEventListener('click', e => { e.stopPropagation(); open(i, 0); });
       });
 
-      // Fermeture
       lbClose.addEventListener('click', close);
       lbStage.addEventListener('click', e => { if (e.target === lbStage) close(); });
       lbImg.addEventListener('click',   e => { e.stopPropagation(); close(); });
 
-      // Navigation entre réalisations
       lbPrev.addEventListener('click', e => {
         e.stopPropagation();
         if (current > 0) { current--; subIndex = 0; update(); }
@@ -461,48 +666,47 @@
         if (current < items.length - 1) { current++; subIndex = 0; update(); }
       });
 
-      // Dots
-      lbDot1.addEventListener('click', e => { e.stopPropagation(); subIndex = 0; update(); });
-      lbDot2.addEventListener('click', e => { e.stopPropagation(); subIndex = 1; update(); });
+      lbSubUp.addEventListener('click', e => {
+        e.stopPropagation();
+        if (subIndex > 0) { subIndex--; update(); }
+      });
+      lbSubDown.addEventListener('click', e => {
+        e.stopPropagation();
+        if (subIndex < getAllImgs(items[current]).length - 1) { subIndex++; update(); }
+      });
 
-      // Clavier
       document.addEventListener('keydown', e => {
         if (!lb.classList.contains('open')) return;
         if (e.key === 'Escape')     close();
         if (e.key === 'ArrowLeft')  { if (current > 0) { current--; subIndex = 0; update(); } }
         if (e.key === 'ArrowRight') { if (current < items.length - 1) { current++; subIndex = 0; update(); } }
-        if (e.key === 'ArrowUp'   && subIndex === 1) { subIndex = 0; update(); }
-        if (e.key === 'ArrowDown' && subIndex === 0 && hasSecond(items[current])) { subIndex = 1; update(); }
+        if (e.key === 'ArrowUp'   && subIndex > 0) { subIndex--; update(); }
+        if (e.key === 'ArrowDown' && subIndex < getAllImgs(items[current]).length - 1) { subIndex++; update(); }
       });
 
-      // Swipe horizontal (navigation entre réalisations)
-      // + Swipe vertical (basculer entre les 2 vues d'un même item)
       let touchStartX = 0, touchStartY = 0;
       lb.addEventListener('touchstart', e => {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
       }, { passive: true });
-
       lb.addEventListener('touchend', e => {
         const dx = e.changedTouches[0].clientX - touchStartX;
         const dy = e.changedTouches[0].clientY - touchStartY;
-
-        // On détermine l'axe dominant du swipe
         if (Math.abs(dx) > Math.abs(dy)) {
-          // ← → navigation entre réalisations
           if (Math.abs(dx) > 50) {
             if (dx < 0 && current < items.length - 1) { current++; subIndex = 0; update(); }
             else if (dx > 0 && current > 0)            { current--; subIndex = 0; update(); }
           }
         } else {
-          // ↑ ↓ basculement entre les 2 vues
-          if (Math.abs(dy) > 50 && hasSecond(items[current])) {
-            if (dy < 0 && subIndex === 0) { subIndex = 1; update(); } // swipe vers le haut → vue 2
-            if (dy > 0 && subIndex === 1) { subIndex = 0; update(); } // swipe vers le bas  → vue 1
+          const count = getAllImgs(items[current]).length;
+          if (Math.abs(dy) > 50) {
+            if (dy < 0 && subIndex < count - 1) { subIndex++; update(); }
+            if (dy > 0 && subIndex > 0)         { subIndex--; update(); }
           }
         }
       });
     })();
+    // ══════════════════════════════════════════════════════════════
   </script>
 </body>
 </html>
