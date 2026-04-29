@@ -311,7 +311,7 @@
       color: rgba(255,255,255,.35); pointer-events: none;
     }
 
-    /* image wrapper — handles overflow for pan */
+    /* image wrapper */
     .lb-stage {
       position: relative;
       display: flex; align-items: center; justify-content: center;
@@ -379,51 +379,47 @@
     }
     .lb-zoom-badge.hidden { opacity: 0; }
 
-    /* gallery items get a zoom cursor (sauf la 2e image cachée) */
+    /* gallery items get a zoom cursor */
     .gallery-item img:not(.gallery-item__img2) { cursor: zoom-in !important; }
     .gallery-item__img2 { display: none !important; }
 
-    /* ── Sous-navigation lightbox (points 1 / 2) ── */
+    /* ══════════════════════════════════════════════
+       ★ MODIFICATION — Flèches haut/bas (remplace les points)
+       ══════════════════════════════════════════════ */
     .lb-subnav {
       position: absolute;
       bottom: 72px; left: 50%;
       transform: translateX(-50%);
-      display: flex; gap: 14px; align-items: center;
+      display: flex; flex-direction: row; gap: 14px; align-items: center;
       z-index: 3;
     }
-    /* Zone de clic large (min 44×44 px pour mobile) */
-    .lb-dot {
+    .lb-sub-arrow {
       width: 44px; height: 44px;
       border-radius: 50%;
-      background: transparent;
-      border: none;
-      cursor: pointer; padding: 0;
+      background: rgba(180,180,180,.45);
+      border: 1px solid rgba(100,100,100,.35);
+      color: #fff; font-size: 1.2rem; line-height: 1;
+      cursor: pointer;
       display: flex; align-items: center; justify-content: center;
+      transition: opacity .2s, background .2s, border-color .2s;
+      opacity: .55;
     }
-    /* Pastille visible centrée dans la zone de clic */
-    .lb-dot::after {
-      content: '';
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.35);
-      border: 2px solid rgba(255,255,255,.55);
-      transition: background .2s, transform .2s, border-color .2s;
-      display: block;
+    .lb-sub-arrow:hover { opacity: 1; background: rgba(160,160,160,.65); border-color: rgba(80,80,80,.5); }
+    .lb-sub-arrow[disabled] { opacity: .15; pointer-events: none; }
+    .lb-sub-counter {
+      font-size: .65rem; letter-spacing: .12em;
+      color: rgba(255,255,255,.4); pointer-events: none;
+      text-align: center;
     }
-    .lb-dot.active::after {
-      background: #fff;
-      border-color: #fff;
-      transform: scale(1.25);
-    }
-    .lb-dot:hover::after { background: rgba(255,255,255,.75); }
+    /* ══════════════════════════════════════════════ */
 
-    /* Indication swipe visible quand 2e image dispo */
+    /* Indication swipe */
     .lb-swipe-hint {
       position: absolute;
       top: 16px; left: 50%;
       transform: translateX(-50%);
       font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(255,255,255,.28); pointer-events: none;
+      color: rgba(255,255,255,.5); pointer-events: none;
       white-space: nowrap; transition: opacity .5s;
     }
     .lb-swipe-hint.hidden { opacity: 0; }
@@ -469,7 +465,7 @@
       </div>
     </div>
     <div class="projet-hero__image">
-      <img src="assets/01_img/webimage/design-tools.webp" alt="Dossier de formation" />
+      <img src="assets/01_img/webimage/formation.webp" alt="Dossier de formation" />
     </div>
   </section>
 
@@ -519,7 +515,6 @@
       
       <p>Illustrator</p>
       <div class="gallery-grid">
-
         <div class="gallery-item">
           <img src="assets/01_img/illustrator/02_courbes_exo.webp" />
           <img class="gallery-item__img2" src="assets/01_img/illustrator/02_courbes_original.webp" alt="courbes — vue 2">
@@ -722,10 +717,13 @@
       <img class="lb-img" id="lbImg" src="" alt="" draggable="false" />
       <button class="lb-arrow lb-next" id="lbNext" aria-label="Image suivante">›</button>
       <div class="lb-caption" id="lbCaption"></div>
-      <div class="lb-subnav" id="lbSubnav" style="display:none">
-        <button class="lb-dot active" id="lbDot1" aria-label="Vue 1"></button>
-        <button class="lb-dot"        id="lbDot2" aria-label="Vue 2"></button>
+      <!-- ★ MODIFICATION — Flèches haut/bas (remplace les points) -->
+      <div id="lbSubnav" class="lb-subnav" style="display:none">
+        <button class="lb-sub-arrow" id="lbSubUp"   aria-label="Vue précédente">▲</button>
+        <span   class="lb-sub-counter" id="lbSubCounter">1 / 1</span>
+        <button class="lb-sub-arrow" id="lbSubDown" aria-label="Vue suivante">▼</button>
       </div>
+      <!-- ★ FIN MODIFICATION -->
       <div class="lb-swipe-hint hidden" id="lbSwipeHint">↕ Glisser pour changer de vue</div>
       <div class="lb-hint" id="lbHint">Clic ou ✕ pour fermer &nbsp;|&nbsp; ← → pour naviguer</div>
       <div class="lb-zoom-badge hidden" id="lbZoomBadge">×1</div>
@@ -786,7 +784,11 @@
       reader.readAsDataURL(file);
     }
 
-    // ── LIGHTBOX ──────────────────────────────────────────────────
+        // ══════════════════════════════════════════════════════════════
+    // ★ MODIFICATION — Lightbox dynamique avec flèches haut/bas
+    //   → Supporte N images par gallery-item (gallery-item__img2)
+    //   → Les flèches ▲ ▼ remplacent les points
+    // ══════════════════════════════════════════════════════════════
     (function () {
       const lb           = document.getElementById('lightbox');
       const lbImg        = document.getElementById('lbImg');
@@ -797,8 +799,9 @@
       const lbNext       = document.getElementById('lbNext');
       const lbStage      = document.getElementById('lbStage');
       const lbSubnav     = document.getElementById('lbSubnav');
-      const lbDot1       = document.getElementById('lbDot1');
-      const lbDot2       = document.getElementById('lbDot2');
+      const lbSubUp      = document.getElementById('lbSubUp');
+      const lbSubDown    = document.getElementById('lbSubDown');
+      const lbSubCounter = document.getElementById('lbSubCounter');
       const lbSwipeHint  = document.getElementById('lbSwipeHint');
 
       let items = [], current = 0, subIndex = 0;
@@ -808,17 +811,11 @@
           .filter(item => item.querySelector('img:not(.gallery-item__img2)'));
       }
 
-      function getImg(item, idx) {
-        if (idx === 1) {
-          const img2 = item.querySelector('.gallery-item__img2');
-          if (img2 && img2.getAttribute('src')) return img2;
-        }
-        return item.querySelector('img:not(.gallery-item__img2)');
-      }
-
-      function hasSecond(item) {
-        const img2 = item.querySelector('.gallery-item__img2');
-        return !!(img2 && img2.getAttribute('src') !== '');
+      function getAllImgs(item) {
+        const main = item.querySelector('img:not(.gallery-item__img2)');
+        const subs = Array.from(item.querySelectorAll('.gallery-item__img2'))
+          .filter(img => img.getAttribute('src'));
+        return [main, ...subs].filter(Boolean);
       }
 
       function open(index, sub) {
@@ -839,9 +836,11 @@
 
       function update() {
         const item = items[current];
-        const img  = getImg(item, subIndex);
-        lbImg.src  = img.src;
-        lbImg.alt  = img.alt || '';
+        const imgs = getAllImgs(item);
+        subIndex = Math.max(0, Math.min(subIndex, imgs.length - 1));
+
+        lbImg.src = imgs[subIndex].src;
+        lbImg.alt = imgs[subIndex].alt || '';
 
         const ov = item.querySelector('.gallery-item__overlay');
         lbCaption.textContent = ov ? ov.textContent.trim() : '';
@@ -849,28 +848,27 @@
         lbPrev.disabled = current === 0;
         lbNext.disabled = current === items.length - 1;
 
-        // Dots de sous-navigation
-        const second = hasSecond(item);
-        lbSubnav.style.display = second ? 'flex' : 'none';
-        lbSwipeHint.classList.toggle('hidden', !second);
-        if (second) {
-          lbDot1.classList.toggle('active', subIndex === 0);
-          lbDot2.classList.toggle('active', subIndex === 1);
+        if (imgs.length > 1) {
+          lbSubnav.style.display = 'flex';
+          lbSubCounter.textContent = `${subIndex + 1} / ${imgs.length}`;
+          lbSubUp.disabled   = subIndex === 0;
+          lbSubDown.disabled = subIndex === imgs.length - 1;
+          lbSwipeHint.classList.remove('hidden');
+        } else {
+          lbSubnav.style.display = 'none';
+          lbSwipeHint.classList.add('hidden');
         }
       }
 
-      // Attache le clic sur chaque image principale
       document.querySelectorAll('.gallery-item').forEach((item, i) => {
         const img = item.querySelector('img:not(.gallery-item__img2)');
         if (img) img.addEventListener('click', e => { e.stopPropagation(); open(i, 0); });
       });
 
-      // Fermeture
       lbClose.addEventListener('click', close);
       lbStage.addEventListener('click', e => { if (e.target === lbStage) close(); });
       lbImg.addEventListener('click',   e => { e.stopPropagation(); close(); });
 
-      // Navigation entre réalisations
       lbPrev.addEventListener('click', e => {
         e.stopPropagation();
         if (current > 0) { current--; subIndex = 0; update(); }
@@ -880,48 +878,47 @@
         if (current < items.length - 1) { current++; subIndex = 0; update(); }
       });
 
-      // Dots
-      lbDot1.addEventListener('click', e => { e.stopPropagation(); subIndex = 0; update(); });
-      lbDot2.addEventListener('click', e => { e.stopPropagation(); subIndex = 1; update(); });
+      lbSubUp.addEventListener('click', e => {
+        e.stopPropagation();
+        if (subIndex > 0) { subIndex--; update(); }
+      });
+      lbSubDown.addEventListener('click', e => {
+        e.stopPropagation();
+        if (subIndex < getAllImgs(items[current]).length - 1) { subIndex++; update(); }
+      });
 
-      // Clavier
       document.addEventListener('keydown', e => {
         if (!lb.classList.contains('open')) return;
         if (e.key === 'Escape')     close();
         if (e.key === 'ArrowLeft')  { if (current > 0) { current--; subIndex = 0; update(); } }
         if (e.key === 'ArrowRight') { if (current < items.length - 1) { current++; subIndex = 0; update(); } }
-        if (e.key === 'ArrowUp'   && subIndex === 1) { subIndex = 0; update(); }
-        if (e.key === 'ArrowDown' && subIndex === 0 && hasSecond(items[current])) { subIndex = 1; update(); }
+        if (e.key === 'ArrowUp'   && subIndex > 0) { subIndex--; update(); }
+        if (e.key === 'ArrowDown' && subIndex < getAllImgs(items[current]).length - 1) { subIndex++; update(); }
       });
 
-      // Swipe horizontal (navigation entre réalisations)
-      // + Swipe vertical (basculer entre les 2 vues d'un même item)
       let touchStartX = 0, touchStartY = 0;
       lb.addEventListener('touchstart', e => {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
       }, { passive: true });
-
       lb.addEventListener('touchend', e => {
         const dx = e.changedTouches[0].clientX - touchStartX;
         const dy = e.changedTouches[0].clientY - touchStartY;
-
-        // On détermine l'axe dominant du swipe
         if (Math.abs(dx) > Math.abs(dy)) {
-          // ← → navigation entre réalisations
           if (Math.abs(dx) > 50) {
             if (dx < 0 && current < items.length - 1) { current++; subIndex = 0; update(); }
             else if (dx > 0 && current > 0)            { current--; subIndex = 0; update(); }
           }
         } else {
-          // ↑ ↓ basculement entre les 2 vues
-          if (Math.abs(dy) > 50 && hasSecond(items[current])) {
-            if (dy < 0 && subIndex === 0) { subIndex = 1; update(); } // swipe vers le haut → vue 2
-            if (dy > 0 && subIndex === 1) { subIndex = 0; update(); } // swipe vers le bas  → vue 1
+          const count = getAllImgs(items[current]).length;
+          if (Math.abs(dy) > 50) {
+            if (dy < 0 && subIndex < count - 1) { subIndex++; update(); }
+            if (dy > 0 && subIndex > 0)         { subIndex--; update(); }
           }
         }
       });
     })();
+    // ══════════════════════════════════════════════════════════════
   </script>
 
 </body>
