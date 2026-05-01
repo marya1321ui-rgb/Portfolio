@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="reset.css" />
 </head>
 <body>
 
@@ -23,28 +24,56 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO V1 : titre seul + 2 colonnes (quote+image | bio) -->
   <section class="hero" id="hero">
-    <div class="hero__content fade-in">
+
+    <!-- Titre pleine largeur -->
+    <div class="hero__top fade-in">
       <p class="hero__label">Portfolio — Recette Créative</p>
       <h1 class="hero__title">
         A taste of<br>
         <em>my work.</em>
       </h1>
-      <blockquote class="hero__quote">
-        <p>"Le Design, c'est comme une recette que l'on suit au mieux, avec patience, détail, minutie, et un grain de folie. Pour faire ressortir le meilleur des saveurs."</p>
-        <cite>—</cite>
-      </blockquote>
     </div>
 
-    <div class="hero__image-wrap fade-in" style="animation-delay: 0.2s">
-      <img
-        src="assets/01_img/webimage/design-tools.webp"
-        alt="Plat gastronomique"
-      />
-      <div class="hero__caption">
-        Exploration d'un croisement entre sensation, expertise et création. Un mélange de goûts et de couleurs.
+    <!-- 2 colonnes -->
+    <div class="hero__middle">
+
+      <!-- Gauche : quote + espace + image -->
+      <div class="hero__left fade-in">
+        <blockquote class="hero__quote">
+          <p>"Le Design, c'est comme une recette que l'on suit au mieux, avec patience, détail, minutie, et un grain de folie. Pour faire ressortir le meilleur des saveurs."</p>
+          <cite>— Marie</cite>
+        </blockquote>
+
+        <div class="hero__image-wrap">
+          <img src="assets/01_img/webimage/design-tools.webp" alt="Plat gastronomique"/>
+          <div class="hero__caption">
+            Exploration d'un croisement entre sensation, expertise et création. Un mélange de goûts et de couleurs.
+          </div>
+        </div>
       </div>
+
+      <!-- Droite : bio (au même niveau que le quote) -->
+      <div class="hero__right fade-in" style="animation-delay: 0.2s">
+        <div class="hero__bio">
+          <p><strong>Bienvenue dans ma cuisine créative !</strong></p>
+
+          <p>Communicante et graphiste en devenir, je conçois des projets comme on dresse une table : avec connaissance, saveur et une touche d'audace. Pour moi, un bon design, c'est comme une recette réussie : il faut de la technique, de la créativité et une solide gestion de projet pour que le service soit au plus prêt de l'attente du client.</p>
+
+          <p>Mon parcours m'a appris à porter plusieurs toques selon vos besoins :</p>
+          <ul>
+            <li><strong>Chef</strong> pour vos <strong>identités visuelles</strong>, je crée l'ingrédient secret qui vous rend unique.</li>
+            <li><strong>Cuisinière</strong> rigoureuse en <strong>gestion de projet</strong>, je m'assure que le service est fluide du brief jusqu'à la livraison.</li>
+            <li><strong>Commis</strong> sur <strong>Figma, Adobe ou WordPress</strong>, je travaille le pixel et le code pour dresser des interfaces web et des maquettes print qui vous correspondent.</li>
+          </ul>
+
+          <p>Mon objectif ? Transformer vos idées brutes en solutions visuelles savoureuses, servies sur un plateau (digital ou papier).</p>
+          <p><strong>La carte est servie ! Je vous laisse découvrir mes dernières créations.</strong></p>
+          <p class="hero__bio-note"><em>Et si vous souhaitez en savoir plus sur mon parcours, vous trouverez <a href="cv.pdf">ici</a> la liste des fournisseurs.</em></p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -56,37 +85,33 @@
     </div>
     <div class="skills-grid">
       <div class="fade-in">
-        <p class="skill-category__icon">📖</p>
-        <h3 class="skill-category__title">Connaissances</h3>
+        <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir.webp" alt="savoir"> Savoir</h3>
         <ul class="skill-list">
-          <li>Identité visuelle <span>Top Grade</span></li>
-          <li>Maquettes (print et online) <span>Artisanal</span></li>
-          <li>Web design <span>Infused</span></li>
-          <li>Gestion de Projet <span>Infused</span></li>
-          <li>Evènementiel <span>Infused</span></li>
+          <li>Identité visuelle <span>Chef</span></li>
+          <li>Maquettes (Print & Digital) <span>Commis</span></li>
+          <li>Web design <span>Commis</span></li>
+          <li>Gestion de Projet <span>Cuisinière</span></li>
+          <li>Evènementiel <span>Cuisinière</span></li>
         </ul>
       </div>
-      <div class="fade-in" style="animation-delay: 0.15s">
-        <p class="skill-category__icon">🖥️</p>
-        <h3 class="skill-category__title">Compétences</h3>
+      <div class="fade-in">
+        <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir-faire.webp" alt="savoir"> Savoir-faire</h3>
         <ul class="skill-list">
-          <li>Indesign <span>Robuste</span></li>
-          <li>Illustrator <span>Robuste</span></li>
-          <li>Photoshop <span>Expérimental</span></li>
-          <li>HTML/CSS/ CMS (WordPress) <span>Robuste</span></li>
-          <li>Figma <span>Expérimental</span></li>
-          <li>Canva <span>Robuste</span></li>
+          <li>PAO : InDesign, Illustrator <span>Cuisinière</span></li>
+          <li>PAO : Photoshop <span>Commis</span></li>
+          <li>Développement : HTML/CSS/ CMS (WordPress) <span>Cuisinière</span></li>
+          <li>UI/UX : Figma <span>Commis</span></li>
+          <li>Productivité / Création rapide : Canva <span>Cuisinière</span></li>
         </ul>
       </div>
-      <div class="fade-in" style="animation-delay: 0.3s">
-        <p class="skill-category__icon">👩🏻‍💼</p>
-        <h3 class="skill-category__title">Savoir-être</h3>
+      <div class="fade-in">
+        <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir-etre.webp" alt="savoir"> Savoir-être</h3>
         <ul class="skill-list">
-          <li>Investie <span>Profond</span></li>
-          <li>Organisée <span>Raffiné</span></li>
-          <li>Réactive <span>Maîtrisé</span></li>
-          <li>Polyvalente <span>Raffiné</span></li>
-          <li>Patiente <span>Maîtrisé</span></li>
+          <li>Investie <span>Chef</span></li>
+          <li>Organisée <span>Cuisinière</span></li>
+          <li>Réactive <span>Chef</span></li>
+          <li>Polyvalente <span>Cuisinière</span></li>
+          <li>Patiente <span>Chef</span></li>
         </ul>
       </div>
     </div>
@@ -95,17 +120,12 @@
   <!-- PREPARATION -->
   <section class="preparation" id="preparation">
     <div class="preparation__image fade-in">
-      <img
-        src="assets/01_img/webimage/preparation.webp"
-        alt="Mise en place"
-      />
+      <img src="assets/01_img/webimage/preparation.webp" alt="Mise en place"/>
       <span class="preparation__image-label">Mise en place.</span>
     </div>
     <div class="preparation__content fade-in" style="animation-delay: 0.2s">
       <h2>La préparation</h2>
-      <p>
-        Une approche pleine de curiosité et de volonté d'aller plus loin. Un mélange de connaissance et de découverte qui comme une recette se construit et se prépare avec minutie.
-      </p>
+      <p>Une approche pleine de curiosité et de volonté d'aller plus loin. Un mélange de connaissance et de découverte qui comme une recette se construit et se prépare avec minutie.</p>
       <div class="phases">
         <div class="phase">
           <p class="phase__label">Phase I</p>
@@ -118,13 +138,11 @@
           <p>Laisser mijoter, réduire et en ressortir une solution la plus claire et la plus adaptée possible.</p>
         </div>
       </div>
-      <p>
-        Après quelques années d'expérience en communication, et avec la découverte de nouveaux ingrédients, je développe de nouvelles techniques de réflexion pour mieux connecter print et digital.
-      </p>
+      <p>Après quelques années d'expérience en communication, et avec la découverte de nouveaux ingrédients, je développe de nouvelles techniques de réflexion pour mieux connecter print et digital.</p>
     </div>
   </section>
 
-  <!-- MENU — 3 col desktop / 2 col tablette / 1 col mobile (géré dans style.css) -->
+  <!-- MENU -->
   <section class="menu" id="menu">
     <div class="menu__inner">
       <div class="menu__header fade-in">
@@ -132,124 +150,57 @@
         <h2 class="menu__title">Le Menu des Créations</h2>
         <div class="menu__divider"></div>
       </div>
-
       <div class="projects-grid">
-
-        <!-- ── 01 · Dossier de formation part-1 ── -->
         <div class="project-card fade-in" onclick="cardClick(event, 'projet-1.html', 'frame-1')">
           <div class="project-card__frame" id="frame-1">
             <img src="assets/01_img/webimage/formation.webp" alt="Dossier de formation part-1" />
             <span class="project-card__num">01</span>
-            <div class="project-card__overlay">
-              Une plateforme de présentation des réalisations faites lors de l'apprentissage de la partie graphisme de la formation.
-            </div>
+            <div class="project-card__overlay">Une plateforme de présentation des réalisations faites lors de l'apprentissage de la partie graphisme de la formation.</div>
           </div>
           <h3 class="project-card__title">Dossier de formation part-1</h3>
-          <div class="project-card__tags">
-            <span class="project-card__tag">UI/Adobe</span>
-            <span>→</span>
-            <span class="project-card__tag">Graphisme</span>
-          </div>
+          <div class="project-card__tags"><span class="project-card__tag">UI/Adobe</span><span>→</span><span class="project-card__tag">Graphisme</span></div>
           <a class="project-card__link">Découvrir →</a>
         </div>
-
-        <!-- ── 02 · Dossier de formation part-2 (nouveau) ── -->
         <div class="project-card fade-in" style="animation-delay:0.1s" onclick="cardClick(event, 'projet-2.html', 'frame-2')">
           <div class="project-card__frame" id="frame-2">
             <img src="assets/01_img/webimage/formation.webp" alt="Dossier de formation part-2" />
             <span class="project-card__num">02</span>
-            <div class="project-card__overlay">
-              Une plateforme de présentation des réalisations faites pendant la seconde partie de la formation, l'intégration.
-            </div>
+            <div class="project-card__overlay">Une plateforme de présentation des réalisations faites pendant la seconde partie de la formation, l'intégration.</div>
           </div>
           <h3 class="project-card__title">Dossier de formation part-2</h3>
-          <div class="project-card__tags">
-            <span class="project-card__tag">Web</span>
-            <span>→</span>
-            <span class="project-card__tag">Intégration</span>
-          </div>
+          <div class="project-card__tags"><span class="project-card__tag">Web</span><span>→</span><span class="project-card__tag">Intégration</span></div>
           <a class="project-card__link">Découvrir →</a>
         </div>
-
-        <!-- ── 03 · Projets ── -->
         <div class="project-card fade-in" style="animation-delay:0.2s" onclick="cardClick(event, 'projet-3.html', 'frame-3')">
           <div class="project-card__frame" id="frame-3">
             <img src="assets/01_img/webimage/projets.webp" alt="Projets" />
             <span class="project-card__num">03</span>
-            <div class="project-card__overlay">
-              Réalisations effectuées au fil des ans, études, stages, etc.
-            </div>
+            <div class="project-card__overlay">Réalisations effectuées au fil des ans, études, stages, etc.</div>
           </div>
           <h3 class="project-card__title">Projets</h3>
-          <div class="project-card__tags">
-            <span class="project-card__tag">Études</span>
-            <span>→</span>
-            <span class="project-card__tag">Jobs</span>
-          </div>
+          <div class="project-card__tags"><span class="project-card__tag">Études</span><span>→</span><span class="project-card__tag">Jobs</span></div>
           <a class="project-card__link">Découvrir →</a>
         </div>
-
-        <!-- ── 04 · Photographie ── -->
         <div class="project-card fade-in" style="animation-delay:0.1s" onclick="cardClick(event, 'projet-4.html', 'frame-4')">
           <div class="project-card__frame" id="frame-4">
             <img src="assets/01_img/webimage/photos.webp" alt="Photographie" />
             <span class="project-card__num">04</span>
-            <div class="project-card__overlay">
-              Fenêtre sur des déambulations et un regard qui s'arrête au gré du fil.
-            </div>
+            <div class="project-card__overlay">Fenêtre sur des déambulations et un regard qui s'arrête au gré du fil.</div>
           </div>
           <h3 class="project-card__title">Photographie</h3>
-          <div class="project-card__tags">
-            <span class="project-card__tag">Photos</span>
-            <span>→</span>
-            <span class="project-card__tag">Albums</span>
-          </div>
+          <div class="project-card__tags"><span class="project-card__tag">Photos</span><span>→</span><span class="project-card__tag">Albums</span></div>
           <a class="project-card__link">Découvrir →</a>
         </div>
-
-        <!-- ── 05 · Réflexion artistique ── -->
         <div class="project-card fade-in" style="animation-delay:0.2s" onclick="cardClick(event, 'projet-5.html', 'frame-5')">
           <div class="project-card__frame" id="frame-5">
             <img src="assets/01_img/webimage/art.webp" alt="Réflexion artistique" />
             <span class="project-card__num">05</span>
-            <div class="project-card__overlay">
-              Un laboratoire d'expérimentation artistique, au fil des ateliers.
-              Peinture, dessin, un monde en cours d'exploration.
-            </div>
+            <div class="project-card__overlay">Un laboratoire d'expérimentation artistique, au fil des ateliers. Peinture, dessin, un monde en cours d'exploration.</div>
           </div>
           <h3 class="project-card__title">Réflexion artistique</h3>
-          <div class="project-card__tags">
-            <span class="project-card__tag">Essais</span>
-            <span>→</span>
-            <span class="project-card__tag">Rendus</span>
-          </div>
+          <div class="project-card__tags"><span class="project-card__tag">Essais</span><span>→</span><span class="project-card__tag">Rendus</span></div>
           <a class="project-card__link">Découvrir →</a>
         </div>
-
-        <!--
-          ══════════════════════════════════════════════════════════
-          TEMPLATE — Pour ajouter un projet ultérieur :
-          1. Copiez ce bloc et décommentez-le
-          2. Remplacez les ★ (5 champs) par vos valeurs
-          3. Créez le fichier projet-6.html correspondant
-          ══════════════════════════════════════════════════════════
-
-        <div class="project-card fade-in" style="animation-delay:0.1s" onclick="cardClick(event,'projet-6.html','frame-6')">
-          <div class="project-card__frame" id="frame-6">
-            <img src="★ URL image" alt="★ description image" />
-            <span class="project-card__num">06</span>
-            <div class="project-card__overlay">★ Texte affiché au survol.</div>
-          </div>
-          <h3 class="project-card__title">★ Titre du projet</h3>
-          <div class="project-card__tags">
-            <span class="project-card__tag">★ Tag 1</span>
-            <span>→</span>
-            <span class="project-card__tag">★ Tag 2</span>
-          </div>
-          <a class="project-card__link">Découvrir →</a>
-        </div>
-        -->
-
       </div>
     </div>
   </section>
@@ -265,25 +216,17 @@
     </div>
   </footer>
 
-  <!-- Back to top -->
   <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
 
   <script>
-    // Nav scroll
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
 
-    // Fade-in
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-      });
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.15 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Active nav link
     const sections = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('.nav__links a');
     window.addEventListener('scroll', () => {
@@ -292,44 +235,26 @@
       navAnchors.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     });
 
-    // Burger
     const burger = document.getElementById('navBurger');
     const navMenu = document.getElementById('navLinks');
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
-      navMenu.classList.toggle('open');
-    });
+    burger.addEventListener('click', () => { burger.classList.toggle('active'); navMenu.classList.toggle('open'); });
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        burger.classList.remove('active');
-        navMenu.classList.remove('open');
-      });
+      link.addEventListener('click', () => { burger.classList.remove('active'); navMenu.classList.remove('open'); });
     });
 
-    // Overlay project cards : hover desktop (CSS), tap mobile (JS)
-    // 1er tap = affiche l'overlay  /  2e tap = navigue vers la page
     function cardClick(event, url, frameId) {
       if (window.innerWidth <= 900) {
         const frame = document.getElementById(frameId);
         const isActive = frame.classList.contains('overlay-active');
         document.querySelectorAll('.project-card__frame.overlay-active').forEach(f => f.classList.remove('overlay-active'));
-        if (!isActive) {
-          frame.classList.add('overlay-active');
-          return;
-        }
+        if (!isActive) { frame.classList.add('overlay-active'); return; }
       }
       window.location.href = url;
     }
 
-    // Back to top
     const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    window.addEventListener('scroll', () => { backToTop.classList.toggle('visible', window.scrollY > 400); });
+    backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   </script>
-
 </body>
 </html>
