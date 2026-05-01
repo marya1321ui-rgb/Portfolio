@@ -4,6 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant:ital,wght@0,700;1,700&family=Jost:wght@300;400;500&display=swap');
 
+html { font-size: 62.5%; }
+
 :root {
   --color-bg:          #f5f0e8;
   --color-bg-dark:     #1a2233;
@@ -19,20 +21,20 @@
   --font-display-bold: 'Cormorant', Georgia, serif;
   --font-body:         'Jost', sans-serif;
 
-  --size-hero:         clamp(4rem, 8vw, 7rem);
-  --size-h1:           clamp(2.5rem, 5vw, 4rem);
-  --size-h2:           clamp(1.8rem, 3vw, 2.5rem);
-  --size-h3:           1.4rem;
-  --size-body:         1rem;
-  --size-small:        0.75rem;
-  --size-label:        0.7rem;
+  --size-hero:         clamp(6.4rem, 8vw, 11.2rem);
+  --size-h1:           clamp(4rem, 5vw, 6.4rem);
+  --size-h2:           clamp(2.88rem, 3vw, 4rem);
+  --size-h3:           2.24rem;
+  --size-body:         1.6rem;
+  --size-small:        1.2rem;
+  --size-label:        1.12rem;
 
-  --space-xs:   0.5rem;
-  --space-sm:   1rem;
-  --space-md:   2rem;
-  --space-lg:   4rem;
-  --space-xl:   6rem;
-  --space-xxl:  10rem;
+  --space-xs:   0.8rem;
+  --space-sm:   1.6rem;
+  --space-md:   3.2rem;
+  --space-lg:   6.4rem;
+  --space-xl:   9.6rem;
+  --space-xxl:  13.6rem;
 
   --max-width:  1000px;
   --nav-height: 70px;
@@ -83,7 +85,7 @@ a { text-decoration: none; color: inherit; }
 .nav__logo {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1rem;
+  font-size: var(--size-body);
   letter-spacing: 0.05em;
   font-weight: 400;
   white-space: nowrap;
@@ -187,7 +189,7 @@ a { text-decoration: none; color: inherit; }
 .hero__quote p {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: var(--size-body);
   line-height: 1.7;
   color: var(--color-text-light);
 }
@@ -209,16 +211,132 @@ a { text-decoration: none; color: inherit; }
   color: var(--color-text-white);
   padding: var(--space-sm) var(--space-md);
   max-width: 280px;
-  font-size: 0.88rem;
+  font-size: 1.408rem;
   line-height: 1.6;
   font-weight: 300;
+}
+/* ── HERO V1 : titre pleine largeur + 2 colonnes (quote+image | bio) ── */
+.hero {
+  display: block;
+  padding-top: calc(var(--nav-height) + var(--space-md));
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  padding-bottom: var(--space-xl);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+/* Label + titre : pleine largeur */
+.hero__top {
+  margin-bottom: var(--space-md);
+}
+/* Grille 2 colonnes : gauche = quote + image / droite = bio */
+.hero__middle {
+  display: grid;
+  grid-template-columns: 44% 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+/* Colonne gauche : quote puis image avec espace entre les deux */
+.hero__left {
+  display: flex;
+  flex-direction: column;
+}
+.hero__left .hero__quote {
+  margin-top: 0;
+  margin-bottom: var(--space-md); /* espace réduit entre quote et image */
+}
+/* Image : caption ne déborde pas sur la colonne droite */
+.hero__left .hero__image-wrap {
+  position: relative;
+  height: 420px;
+  /* Padding-bottom pour absorber le caption absolu (-30px) */
+  margin-bottom: 60px;
+}
+/* Colonne droite : bio alignée en haut (niveau du quote) */
+.hero__right {
+  padding-top: 0;
+}
+/* Bio text styles */
+.hero__bio p {
+  font-size: var(--size-body);
+  line-height: 1.85;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-xs);
+}
+.hero__bio p strong {
+  font-weight: 500;
+  color: var(--color-text);
+}
+.hero__bio ul {
+  list-style: none;
+  margin: var(--space-xs) 0 var(--space-xs);
+  padding: 0;
+}
+.hero__bio ul li {
+  position: relative;
+  padding-left: 1.2em;
+  font-size: var(--size-body);
+  line-height: 1.85;
+  color: var(--color-text-light);
+}
+.hero__bio ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+.hero__bio ul li strong {
+  font-weight: 500;
+  color: var(--color-text);
+}
+.hero__bio .hero__bio-note { margin-top: 0; }
+.hero__bio p:has(+ ul) { margin-bottom: 0; }
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--color-text-light);
+  margin-top: var(--space-sm);
+}
+.hero__bio /*.hero__bio-note a*/ {
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: .5px;
+  transition: opacity 0.2s ease;
+}
+.hero__bio-note a {
+  color: var(--color-bg-dark);
+  font-weight: 400;
+  border-bottom: 1px solid var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+.hero__bio .hero__bio-note a:hover { opacity: 0.7; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero__middle {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  .hero__left .hero__image-wrap {
+    height: 280px;
+    margin-bottom: 70px; /* caption descend à -50px sur tablette */
+  }
+  .hero__left .hero__quote {
+    margin-bottom: var(--space-md);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__left .hero__image-wrap {
+    height: 240px;
+    margin-bottom: 75px;
+  }
 }
 
 /* ============================================================
    INGREDIENTS
    ============================================================ */
 .ingredients {
-  padding: var(--space-xxl) var(--space-md) var(--space-xl);
+  padding: var(--space-xl) var(--space-md);
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -247,7 +365,8 @@ a { text-decoration: none; color: inherit; }
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl) var(--space-lg);
 }
-.skill-category__icon { font-size: 1.3rem; color: var(--color-accent-red); margin-bottom: var(--space-sm); }
+.skill-category__icon { font-size: 2.08rem; /*color: var(--color-accent-red)*/; margin-bottom: var(--space-sm); }
+.skill-category__icon img {width: 5rem; height: 5rem;}
 .skill-category__title { font-size: var(--size-h3); font-weight: 400; margin-bottom: var(--space-md); font-family: var(--font-body); }
 .skill-list { list-style: none; }
 .skill-list li {
@@ -256,7 +375,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   padding: var(--space-xs) 0;
   border-bottom: 1px solid var(--color-border);
-  font-size: 0.9rem;
+  font-size: 1.44rem;
 }
 .skill-list li span {
   font-size: var(--size-label);
@@ -287,7 +406,7 @@ a { text-decoration: none; color: inherit; }
   padding: var(--space-xs) var(--space-sm);
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.76rem;
 }
 .preparation__content h2 {
   font-family: var(--font-display);
@@ -295,12 +414,12 @@ a { text-decoration: none; color: inherit; }
   font-weight: 400;
   margin-bottom: var(--space-md);
 }
-.preparation__content p { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: var(--space-md); line-height: 1.8; }
+.preparation__content p { color: var(--color-text-light); font-size: 1.52rem; margin-bottom: var(--space-md); line-height: 1.8; }
 .phases { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); margin-bottom: var(--space-md); }
 .phase { border-left: 2px solid var(--color-border); padding-left: var(--space-sm); }
 .phase__label { font-size: var(--size-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: var(--space-xs); }
-.phase h3 { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; font-weight: 400; margin-bottom: var(--space-xs); }
-.phase p { font-size: 0.85rem; margin-bottom: 0; }
+.phase h3 { font-family: var(--font-display); font-style: italic; font-size: 1.84rem; font-weight: 400; margin-bottom: var(--space-xs); }
+.phase p { font-size: 1.36rem; margin-bottom: 0; }
 
 /* ============================================================
    MENU (Projets) — 3/3 desktop, 2/2 tablette, 1 mobile
@@ -353,7 +472,7 @@ a { text-decoration: none; color: inherit; }
   background: rgba(26, 34, 51, 0.84);
   color: var(--color-text-white);
   padding: var(--space-sm) var(--space-sm);
-  font-size: 0.8rem;
+  font-size: 1.28rem;
   line-height: 1.6;
   font-weight: 300;
   transform: translateY(100%);
@@ -363,8 +482,8 @@ a { text-decoration: none; color: inherit; }
 .project-card__frame:hover .project-card__overlay { transform: translateY(0); }
 .project-card__frame.overlay-active .project-card__overlay { transform: translateY(0); }
 
-.project-card__title { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--color-text-white); margin-bottom: var(--space-xs); font-weight: 400; }
-.project-card__desc { font-size: 0.82rem; color: rgba(245, 240, 232, 0.65); margin-bottom: var(--space-sm); line-height: 1.7; }
+.project-card__title { font-family: var(--font-display); font-style: italic; font-size: 1.84rem; color: var(--color-text-white); margin-bottom: var(--space-xs); font-weight: 400; }
+.project-card__desc { font-size: 1.312rem; color: rgba(245, 240, 232, 0.65); margin-bottom: var(--space-sm); line-height: 1.7; }
 .project-card__tags { display: flex; align-items: center; gap: var(--space-xs); margin-bottom: var(--space-xs); flex-wrap: wrap; }
 .project-card__tag { font-size: var(--size-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
 .project-card__tags span { color: rgba(245, 240, 232, 0.3); }
@@ -399,8 +518,8 @@ a { text-decoration: none; color: inherit; }
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
-.footer__brand { font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-size: 1.1rem; }
-.footer__tagline { font-size: 0.8rem; color: rgba(245, 240, 232, 0.4); margin-top: 2px; }
+.footer__brand { font-family: var(--font-display); font-style: italic; color: var(--color-accent); font-size: 1.76rem; }
+.footer__tagline { font-size: 1.28rem; color: rgba(245, 240, 232, 0.4); margin-top: 2px; }
 .footer__links { display: flex; gap: var(--space-md); list-style: none; }
 .footer__links a { font-size: var(--size-label); letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245, 240, 232, 0.5); transition: color var(--transition); }
 .footer__links a:hover { color: var(--color-text-white); }
@@ -411,14 +530,14 @@ a { text-decoration: none; color: inherit; }
    ============================================================ */
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 3.2rem;
+  right: 3.2rem;
   width: 44px;
   height: 44px;
   background: var(--color-bg-dark);
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
-  font-size: 1rem;
+  font-size: 1.6rem;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
@@ -442,7 +561,7 @@ a { text-decoration: none; color: inherit; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
-  :root { --space-lg: 2rem; --space-xl: 4rem; }
+  :root { --space-lg: 3.2rem; --space-xl: 6.4rem; }
 
   .hero {
     grid-template-columns: 1fr;
@@ -487,7 +606,7 @@ a { text-decoration: none; color: inherit; }
     margin-left: 0;
   }
   .nav__links.open { transform: translateX(0); opacity: 1; visibility: visible; }
-  .nav__links a { font-size: 1.2rem; letter-spacing: 0.18em; }
+  .nav__links a { font-size: 1.92rem; letter-spacing: 0.18em; }
 
   .phases { grid-template-columns: 1fr; }
 
