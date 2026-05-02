@@ -8,9 +8,8 @@
   <link rel="stylesheet" href="reset.css" />
 </head>
 <body>
-
-  <!-- NAVIGATION -->
-  <nav class="nav" id="nav">
+<!-- NAVIGATION -->
+  <header class="nav" id="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">PORTFOLIO</a>
       <ul class="nav__links" id="navLinks">
@@ -22,188 +21,180 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-  </nav>
-
-  <!-- HERO V1 : titre seul + 2 colonnes (quote+image | bio) -->
-  <section class="hero" id="hero">
-
-    <!-- Titre pleine largeur -->
-    <div class="hero__top fade-in">
-      <p class="hero__label">Portfolio — Recette Créative</p>
-      <h1 class="hero__title">
-        A taste of<br>
-        <em>my work.</em>
-      </h1>
-    </div>
-
-    <!-- 2 colonnes -->
-    <div class="hero__middle">
-
-      <!-- Gauche : quote + espace + image -->
-      <div class="hero__left fade-in">
-        <blockquote class="hero__quote">
-          <p>"Le Design, c'est comme une recette que l'on suit au mieux, avec patience, détail, minutie, et un grain de folie. Pour faire ressortir le meilleur des saveurs."</p>
-          <cite>— Marie</cite>
-        </blockquote>
-
-        <div class="hero__image-wrap">
-          <img src="assets/01_img/webimage/design-tools.webp" alt="Plat gastronomique"/>
-          <div class="hero__caption">
-            Exploration d'un croisement entre sensation, expertise et création. Un mélange de goûts et de couleurs.
+  </header>
+  <main>
+<!-- HERO V1 : titre seul + 2 colonnes (quote+image | bio) -->
+    <section class="hero" id="hero">
+<!-- Titre pleine largeur -->
+      <div class="hero__top fade-in">
+        <p class="hero__label">Portfolio — Recette Créative</p>
+        <h1 class="hero__title">
+          A taste of<br>
+          <em>my work.</em>
+        </h1>
+      </div>
+<!-- 2 colonnes -->
+      <div class="hero__middle">
+<!-- Gauche : quote + espace + image -->
+        <div class="hero__left fade-in">
+          <blockquote class="hero__quote">
+            <p>"Le Design, c'est comme une recette que l'on suit au mieux, avec patience, détail, minutie, et un grain de folie. Pour faire ressortir le meilleur des saveurs."</p>
+            <cite>— Marie</cite>
+          </blockquote>
+          <div class="hero__image-wrap">
+            <img src="assets/01_img/webimage/design-tools.webp" alt="Plat gastronomique"/>
+            <div class="hero__caption">
+              Exploration d'un croisement entre sensation, expertise et création. Un mélange de goûts et de couleurs.
+            </div>
+          </div>
+        </div>
+<!-- Droite : bio (au même niveau que le quote) -->
+        <div class="hero__right fade-in" style="animation-delay: 0.2s">
+          <div class="hero__bio">
+            <p><strong>Bienvenue dans ma cuisine créative !</strong></p> 
+            <p>Communicante et graphiste en devenir, je conçois des projets comme on dresse une table : avec connaissance, saveur et une touche d'audace. Pour moi, un bon design, c'est comme une recette réussie : il faut de la technique, de la créativité et une solide gestion de projet pour que le service soit au plus prêt de l'attente du client.</p>
+            <p>Mon parcours m'a appris à porter plusieurs toques selon vos besoins :</p>
+            <ul>
+              <li><strong>Chef</strong> pour vos <strong>identités visuelles</strong>, je crée l'ingrédient secret qui vous rend unique.</li>
+              <li><strong>Cuisinière</strong> rigoureuse en <strong>gestion de projet</strong>, je m'assure que le service est fluide du brief jusqu'à la livraison.</li>
+              <li><strong>Commis</strong> sur <strong>Figma, Adobe ou WordPress</strong>, je travaille le pixel et le code pour dresser des interfaces web et des maquettes print qui vous correspondent.</li>
+            </ul>
+            <p>Mon objectif ? Transformer vos idées brutes en solutions visuelles savoureuses, servies sur un plateau (digital ou papier).</p>
+            <p><strong>La carte est servie ! Je vous laisse découvrir mes dernières créations.</strong></p>
+            <p class="hero__bio-note"><em>Et si vous souhaitez en savoir plus sur mon parcours, vous trouverez <a href="cv.pdf">ici</a> la liste des fournisseurs.</em></p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Droite : bio (au même niveau que le quote) -->
-      <div class="hero__right fade-in" style="animation-delay: 0.2s">
-        <div class="hero__bio">
-          <p><strong>Bienvenue dans ma cuisine créative !</strong></p>
-
-          <p>Communicante et graphiste en devenir, je conçois des projets comme on dresse une table : avec connaissance, saveur et une touche d'audace. Pour moi, un bon design, c'est comme une recette réussie : il faut de la technique, de la créativité et une solide gestion de projet pour que le service soit au plus prêt de l'attente du client.</p>
-
-          <p>Mon parcours m'a appris à porter plusieurs toques selon vos besoins :</p>
-          <ul>
-            <li><strong>Chef</strong> pour vos <strong>identités visuelles</strong>, je crée l'ingrédient secret qui vous rend unique.</li>
-            <li><strong>Cuisinière</strong> rigoureuse en <strong>gestion de projet</strong>, je m'assure que le service est fluide du brief jusqu'à la livraison.</li>
-            <li><strong>Commis</strong> sur <strong>Figma, Adobe ou WordPress</strong>, je travaille le pixel et le code pour dresser des interfaces web et des maquettes print qui vous correspondent.</li>
+<!-- INGREDIENTS -->
+    <section class="ingredients" id="ingredients">
+      <div class="section__header fade-in">
+        <h2 class="section__title">Les Ingrédients</h2>
+        <span class="section__subtitle">Compétences &amp; soft skills</span>
+      </div>
+      <div class="skills-grid">
+        <div class="fade-in">
+          <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir.webp" alt="savoir"> Savoir</h3>
+          <ul class="skill-list">
+            <li>Identité visuelle <span>Chef</span></li>
+            <li>Maquettes (Print & Digital) <span>Commis</span></li>
+            <li>Web design <span>Commis</span></li>
+            <li>Gestion de Projet <span>Cuisinière</span></li>
+            <li>Evènementiel <span>Cuisinière</span></li>
           </ul>
+        </div>
+        <div class="fade-in">
+          <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir-faire.webp" alt="savoir"> Savoir-faire</h3>
+          <ul class="skill-list">
+            <li>PAO : InDesign, Illustrator <span>Cuisinière</span></li>
+            <li>PAO : Photoshop <span>Commis</span></li>
+            <li>Développement : HTML/CSS/ CMS (WordPress) <span>Cuisinière</span></li>
+            <li>UI/UX : Figma <span>Commis</span></li>
+            <li>Productivité / Création rapide : Canva <span>Cuisinière</span></li>
+          </ul>
+        </div>
+        <div class="fade-in">
+          <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir-etre.webp" alt="savoir"> Savoir-être</h3>
+          <ul class="skill-list">
+            <li>Investie <span>Chef</span></li>
+            <li>Organisée <span>Cuisinière</span></li>
+            <li>Réactive <span>Chef</span></li>
+            <li>Polyvalente <span>Cuisinière</span></li>
+            <li>Patiente <span>Chef</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-          <p>Mon objectif ? Transformer vos idées brutes en solutions visuelles savoureuses, servies sur un plateau (digital ou papier).</p>
-          <p><strong>La carte est servie ! Je vous laisse découvrir mes dernières créations.</strong></p>
-          <p class="hero__bio-note"><em>Et si vous souhaitez en savoir plus sur mon parcours, vous trouverez <a href="cv.pdf">ici</a> la liste des fournisseurs.</em></p>
-        </div>
+<!-- PREPARATION -->
+    <section class="preparation" id="preparation">
+      <div class="preparation__image fade-in">
+        <img src="assets/01_img/webimage/preparation.webp" alt="Mise en place"/>
+        <span class="preparation__image-label">Mise en place.</span>
       </div>
+      <div class="preparation__content fade-in" style="animation-delay: 0.2s">
+        <h2>La préparation</h2>
+        <p>Une approche pleine de curiosité et de volonté d'aller plus loin. Un mélange de connaissance et de découverte qui comme une recette se construit et se prépare avec minutie.</p>
+        <div class="phases">
+          <div class="phase">
+            <p class="phase__label">Phase I</p>
+            <h3>Le sourcing</h3>
+            <p>Pour qui, avec qui, et avec quel objectif.</p>
+          </div>
+          <div class="phase">
+            <p class="phase__label">Phase II</p>
+            <h3>La préparation</h3>
+            <p>Laisser mijoter, réduire et en ressortir une solution la plus claire et la plus adaptée possible.</p>
+          </div>
+        </div>
+        <p>Après quelques années d'expérience en communication, et avec la découverte de nouveaux ingrédients, je développe de nouvelles techniques de réflexion pour mieux connecter print et digital.</p>
+      </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- INGREDIENTS -->
-  <section class="ingredients" id="ingredients">
-    <div class="section__header fade-in">
-      <h2 class="section__title">Les Ingrédients</h2>
-      <span class="section__subtitle">Compétences &amp; soft skills</span>
-    </div>
-    <div class="skills-grid">
-      <div class="fade-in">
-        <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir.webp" alt="savoir"> Savoir</h3>
-        <ul class="skill-list">
-          <li>Identité visuelle <span>Chef</span></li>
-          <li>Maquettes (Print & Digital) <span>Commis</span></li>
-          <li>Web design <span>Commis</span></li>
-          <li>Gestion de Projet <span>Cuisinière</span></li>
-          <li>Evènementiel <span>Cuisinière</span></li>
-        </ul>
-      </div>
-      <div class="fade-in">
-        <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir-faire.webp" alt="savoir"> Savoir-faire</h3>
-        <ul class="skill-list">
-          <li>PAO : InDesign, Illustrator <span>Cuisinière</span></li>
-          <li>PAO : Photoshop <span>Commis</span></li>
-          <li>Développement : HTML/CSS/ CMS (WordPress) <span>Cuisinière</span></li>
-          <li>UI/UX : Figma <span>Commis</span></li>
-          <li>Productivité / Création rapide : Canva <span>Cuisinière</span></li>
-        </ul>
-      </div>
-      <div class="fade-in">
-        <h3 class="skill-category__title skill-category__icon"><img src="assets/01_img/webimage/icone_savoir-etre.webp" alt="savoir"> Savoir-être</h3>
-        <ul class="skill-list">
-          <li>Investie <span>Chef</span></li>
-          <li>Organisée <span>Cuisinière</span></li>
-          <li>Réactive <span>Chef</span></li>
-          <li>Polyvalente <span>Cuisinière</span></li>
-          <li>Patiente <span>Chef</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- PREPARATION -->
-  <section class="preparation" id="preparation">
-    <div class="preparation__image fade-in">
-      <img src="assets/01_img/webimage/preparation.webp" alt="Mise en place"/>
-      <span class="preparation__image-label">Mise en place.</span>
-    </div>
-    <div class="preparation__content fade-in" style="animation-delay: 0.2s">
-      <h2>La préparation</h2>
-      <p>Une approche pleine de curiosité et de volonté d'aller plus loin. Un mélange de connaissance et de découverte qui comme une recette se construit et se prépare avec minutie.</p>
-      <div class="phases">
-        <div class="phase">
-          <p class="phase__label">Phase I</p>
-          <h3>Le sourcing</h3>
-          <p>Pour qui, avec qui, et avec quel objectif.</p>
+<!-- MENU -->
+    <section class="menu" id="menu">
+      <div class="menu__inner">
+        <div class="menu__header fade-in">
+          <p class="menu__collection">Collection</p>
+          <h2 class="menu__title">Le Menu des Créations</h2>
+          <div class="menu__divider"></div>
         </div>
-        <div class="phase">
-          <p class="phase__label">Phase II</p>
-          <h3>La préparation</h3>
-          <p>Laisser mijoter, réduire et en ressortir une solution la plus claire et la plus adaptée possible.</p>
-        </div>
-      </div>
-      <p>Après quelques années d'expérience en communication, et avec la découverte de nouveaux ingrédients, je développe de nouvelles techniques de réflexion pour mieux connecter print et digital.</p>
-    </div>
-  </section>
-
-  <!-- MENU -->
-  <section class="menu" id="menu">
-    <div class="menu__inner">
-      <div class="menu__header fade-in">
-        <p class="menu__collection">Collection</p>
-        <h2 class="menu__title">Le Menu des Créations</h2>
-        <div class="menu__divider"></div>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card fade-in" onclick="cardClick(event, 'projet-1.html', 'frame-1')">
-          <div class="project-card__frame" id="frame-1">
-            <img src="assets/01_img/webimage/formation.webp" alt="Dossier de formation part-1" />
-            <span class="project-card__num">01</span>
-            <div class="project-card__overlay">Une plateforme de présentation des réalisations faites lors de l'apprentissage de la partie graphisme de la formation.</div>
+        <div class="projects-grid">
+          <div class="project-card fade-in" onclick="cardClick(event, 'projet-1.html', 'frame-1')">
+            <div class="project-card__frame" id="frame-1">
+              <img src="assets/01_img/webimage/formation.webp" alt="Dossier de formation part-1" />
+              <span class="project-card__num">01</span>
+              <div class="project-card__overlay">Une plateforme de présentation des réalisations faites lors de l'apprentissage de la partie graphisme de la formation.</div>
+            </div>
+            <h3 class="project-card__title">Dossier de formation part-1</h3>
+            <div class="project-card__tags"><span class="project-card__tag">UI/Adobe</span><span>→</span><span class="project-card__tag">Graphisme</span></div>
+            <a class="project-card__link">Découvrir →</a>
           </div>
-          <h3 class="project-card__title">Dossier de formation part-1</h3>
-          <div class="project-card__tags"><span class="project-card__tag">UI/Adobe</span><span>→</span><span class="project-card__tag">Graphisme</span></div>
-          <a class="project-card__link">Découvrir →</a>
-        </div>
-        <div class="project-card fade-in" style="animation-delay:0.1s" onclick="cardClick(event, 'projet-2.html', 'frame-2')">
-          <div class="project-card__frame" id="frame-2">
-            <img src="assets/01_img/webimage/formation.webp" alt="Dossier de formation part-2" />
-            <span class="project-card__num">02</span>
-            <div class="project-card__overlay">Une plateforme de présentation des réalisations faites pendant la seconde partie de la formation, l'intégration.</div>
+          <div class="project-card fade-in" style="animation-delay:0.1s" onclick="cardClick(event, 'projet-2.html', 'frame-2')">
+            <div class="project-card__frame" id="frame-2">
+              <img src="assets/01_img/webimage/formation.webp" alt="Dossier de formation part-2" />
+              <span class="project-card__num">02</span>
+              <div class="project-card__overlay">Une plateforme de présentation des réalisations faites pendant la seconde partie de la formation, l'intégration.</div>
+            </div>
+            <h3 class="project-card__title">Dossier de formation part-2</h3>
+            <div class="project-card__tags"><span class="project-card__tag">Web</span><span>→</span><span class="project-card__tag">Intégration</span></div>
+            <a class="project-card__link">Découvrir →</a>
           </div>
-          <h3 class="project-card__title">Dossier de formation part-2</h3>
-          <div class="project-card__tags"><span class="project-card__tag">Web</span><span>→</span><span class="project-card__tag">Intégration</span></div>
-          <a class="project-card__link">Découvrir →</a>
-        </div>
-        <div class="project-card fade-in" style="animation-delay:0.2s" onclick="cardClick(event, 'projet-3.html', 'frame-3')">
-          <div class="project-card__frame" id="frame-3">
-            <img src="assets/01_img/webimage/projets.webp" alt="Projets" />
-            <span class="project-card__num">03</span>
-            <div class="project-card__overlay">Réalisations effectuées au fil des ans, études, stages, etc.</div>
+          <div class="project-card fade-in" style="animation-delay:0.2s" onclick="cardClick(event, 'projet-3.html', 'frame-3')">
+            <div class="project-card__frame" id="frame-3">
+              <img src="assets/01_img/webimage/projets.webp" alt="Projets" />
+              <span class="project-card__num">03</span>
+              <div class="project-card__overlay">Réalisations effectuées au fil des ans, études, stages, etc.</div>
+            </div>
+            <h3 class="project-card__title">Projets</h3>
+            <div class="project-card__tags"><span class="project-card__tag">Études</span><span>→</span><span class="project-card__tag">Jobs</span></div>
+            <a class="project-card__link">Découvrir →</a>
           </div>
-          <h3 class="project-card__title">Projets</h3>
-          <div class="project-card__tags"><span class="project-card__tag">Études</span><span>→</span><span class="project-card__tag">Jobs</span></div>
-          <a class="project-card__link">Découvrir →</a>
-        </div>
-        <div class="project-card fade-in" style="animation-delay:0.1s" onclick="cardClick(event, 'projet-4.html', 'frame-4')">
-          <div class="project-card__frame" id="frame-4">
-            <img src="assets/01_img/webimage/photos.webp" alt="Photographie" />
-            <span class="project-card__num">04</span>
-            <div class="project-card__overlay">Fenêtre sur des déambulations et un regard qui s'arrête au gré du fil.</div>
+          <div class="project-card fade-in" style="animation-delay:0.1s" onclick="cardClick(event, 'projet-4.html', 'frame-4')">
+            <div class="project-card__frame" id="frame-4">
+              <img src="assets/01_img/webimage/photos.webp" alt="Photographie" />
+              <span class="project-card__num">04</span>
+              <div class="project-card__overlay">Fenêtre sur des déambulations et un regard qui s'arrête au gré du fil.</div>
+            </div>
+            <h3 class="project-card__title">Photographie</h3>
+            <div class="project-card__tags"><span class="project-card__tag">Photos</span><span>→</span><span class="project-card__tag">Albums</span></div>
+            <a class="project-card__link">Découvrir →</a>
           </div>
-          <h3 class="project-card__title">Photographie</h3>
-          <div class="project-card__tags"><span class="project-card__tag">Photos</span><span>→</span><span class="project-card__tag">Albums</span></div>
-          <a class="project-card__link">Découvrir →</a>
-        </div>
-        <div class="project-card fade-in" style="animation-delay:0.2s" onclick="cardClick(event, 'projet-5.html', 'frame-5')">
-          <div class="project-card__frame" id="frame-5">
-            <img src="assets/01_img/webimage/art.webp" alt="Réflexion artistique" />
-            <span class="project-card__num">05</span>
-            <div class="project-card__overlay">Un laboratoire d'expérimentation artistique, au fil des ateliers. Peinture, dessin, un monde en cours d'exploration.</div>
+          <div class="project-card fade-in" style="animation-delay:0.2s" onclick="cardClick(event, 'projet-5.html', 'frame-5')">
+            <div class="project-card__frame" id="frame-5">
+              <img src="assets/01_img/webimage/art.webp" alt="Réflexion artistique" />
+              <span class="project-card__num">05</span>
+              <div class="project-card__overlay">Un laboratoire d'expérimentation artistique, au fil des ateliers. Peinture, dessin, un monde en cours d'exploration.</div>
+            </div>
+            <h3 class="project-card__title">Réflexion artistique</h3>
+            <div class="project-card__tags"><span class="project-card__tag">Essais</span><span>→</span><span class="project-card__tag">Rendus</span></div>
+            <a class="project-card__link">Découvrir →</a>
           </div>
-          <h3 class="project-card__title">Réflexion artistique</h3>
-          <div class="project-card__tags"><span class="project-card__tag">Essais</span><span>→</span><span class="project-card__tag">Rendus</span></div>
-          <a class="project-card__link">Découvrir →</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
